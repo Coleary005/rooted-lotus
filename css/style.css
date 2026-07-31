@@ -1,17 +1,18 @@
 /* ---------- Variables ---------- */
 :root {
-  --olive: #8b9574;
-  --olive-dark: #767f61;
-  --mauve: #8f3a52;
+  --olive: #868870;
+  --olive-dark: #8b715a;
+  --deep-brown: #402d1d;
+  --mauve: #906564;
   --blush-bg: #ecdfda;
-  --cream: #f4f2ee;
+  --cream: #f3f2f1;
   --gray-bg: #eeece7;
-  --text-dark: #4a4a44;
+  --text-dark: #3a3a3a;
   --text-muted: #8c8c86;
-  --charcoal: #2b2b28;
+  --charcoal: #402d1d;
   --white: #ffffff;
   --font-script: 'Alex Brush', cursive;
-  --font-body: 'Poppins', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -21,6 +22,8 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 19px;
   color: var(--text-dark);
   background: var(--white);
   line-height: 1.6;
@@ -57,8 +60,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 .nav-links a {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: 1px;
   color: var(--text-dark);
   white-space: nowrap;
@@ -87,7 +90,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 .logo-sub {
-  font-size: 10px;
+  font-size: 11px;
+  font-weight: 400;
   letter-spacing: 2px;
   color: var(--text-muted);
   margin-top: 2px;
@@ -112,7 +116,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 /* ---------- Shared ---------- */
 .script-heading {
   font-family: var(--font-script);
-  font-size: 56px;
+  font-size: 60px;
   color: var(--olive);
   font-weight: 400;
   margin: 0 0 24px;
@@ -128,10 +132,10 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .btn {
   display: inline-block;
-  padding: 16px 38px;
-  font-size: 13px;
+  padding: 14px 38px;
+  font-size: 21px;
   font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   border-radius: 4px;
   border: none;
@@ -147,7 +151,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 .btn-olive:hover {
   background: var(--olive-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(139, 149, 116, 0.35);
+  box-shadow: 0 6px 16px rgba(134, 136, 112, 0.35);
 }
 
 .btn-white {
@@ -178,7 +182,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .welcome-content p {
   color: var(--text-muted);
-  font-size: 15.5px;
+  font-size: 19px;
   margin-bottom: 30px;
 }
 
@@ -187,7 +191,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   background-color: var(--blush-bg);
   background-image:
     radial-gradient(ellipse 500px 300px at 15% 20%, rgba(255,255,255,0.35), transparent 60%),
-    radial-gradient(ellipse 400px 260px at 85% 80%, rgba(139,58,82,0.06), transparent 60%),
+    radial-gradient(ellipse 400px 260px at 85% 80%, rgba(144,101,100,0.08), transparent 60%),
     radial-gradient(ellipse 600px 400px at 60% 0%, rgba(255,255,255,0.2), transparent 55%);
   padding: 70px 40px;
 }
@@ -196,7 +200,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
-  font-size: 24px;
+  font-size: 27px;
   font-weight: 500;
   color: var(--text-dark);
   line-height: 1.5;
@@ -240,12 +244,12 @@ ul { list-style: none; margin: 0; padding: 0; }
   transform: translateX(-50%);
   background: var(--mauve);
   color: var(--white);
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
   white-space: nowrap;
   padding: 12px 24px;
   border-radius: 6px;
-  box-shadow: 0 8px 18px rgba(143, 58, 82, 0.25);
+  box-shadow: 0 8px 18px rgba(144, 101, 100, 0.3);
 }
 
 .offer-help-grid {
@@ -281,8 +285,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 .about-laura {
   background-color: var(--gray-bg);
   background-image:
-    radial-gradient(circle 240px at 8% 15%, rgba(139,149,116,0.08), transparent 65%),
-    radial-gradient(circle 260px at 95% 85%, rgba(139,149,116,0.08), transparent 65%);
+    radial-gradient(circle 240px at 8% 15%, rgba(134,136,112,0.1), transparent 65%),
+    radial-gradient(circle 260px at 95% 85%, rgba(134,136,112,0.1), transparent 65%);
   padding: 90px 40px;
 }
 
@@ -328,8 +332,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 .rates-subhead {
-  font-weight: 600;
-  font-size: 17px;
+  font-weight: 700;
+  font-size: 22px;
   color: var(--text-dark);
   margin: 0 0 16px;
 }
@@ -339,13 +343,15 @@ ul { list-style: none; margin: 0; padding: 0; }
 .rates-list { margin: 0 0 22px; }
 
 .rates-list li {
-  font-size: 15px;
+  font-size: 19px;
+  font-weight: 500;
   color: var(--text-dark);
   margin-bottom: 8px;
 }
 
 .rates-disclaimer {
-  font-size: 12.5px;
+  font-size: 11px;
+  font-weight: 400;
   color: var(--text-muted);
   line-height: 1.6;
 }
@@ -359,6 +365,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 .rates-portal-card p {
+  font-size: 19px;
   font-weight: 600;
   margin: 0 0 22px;
   line-height: 1.6;
@@ -381,8 +388,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 .cta-text p {
-  color: var(--mauve);
-  font-size: 26px;
+  color: var(--deep-brown);
+  font-size: 27px;
   font-weight: 700;
   line-height: 1.35;
   margin: 0 0 20px;
@@ -399,7 +406,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .cta-form-intro {
   color: var(--mauve);
-  font-size: 14px;
+  font-size: 19px;
   margin: 0 0 20px;
 }
 
@@ -440,7 +447,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .form-status {
   text-align: center;
-  font-size: 13px;
+  font-size: 11px;
+  font-weight: 400;
   color: var(--olive-dark);
   margin: 14px 0 0;
   min-height: 18px;
@@ -463,9 +471,9 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 20px;
 }
 
-.footer-contact p { margin: 0 0 4px; font-size: 13px; }
+.footer-contact p { margin: 0 0 4px; font-size: 11px; font-weight: 400; }
 
-.footer-copy p { margin: 0; font-size: 12px; color: #9a958c; }
+.footer-copy p { margin: 0; font-size: 11px; font-weight: 400; color: #b8ada2; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
