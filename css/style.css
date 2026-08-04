@@ -1,9 +1,26 @@
+/* ---------- Fonts ---------- */
+/* Golden Plains is the brand script from the logo lockup. The demo cut only
+   licenses letters and digits — every punctuation glyph is a "DEMO USE ONLY"
+   watermark — so the webfont is subset to A-Z a-z 0-9 and anything else falls
+   through to Montserrat. Keep script headings punctuation-free until the full
+   family is licensed. */
+@font-face {
+  font-family: 'Golden Plains';
+  src: url('../fonts/GoldenPlains-Demo.woff2') format('woff2'),
+       url('../fonts/GoldenPlains-Demo.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020, U+0030-0039, U+0041-005A, U+0061-007A;
+}
+
 /* ---------- Variables ---------- */
 :root {
   --olive: #868870;
   --olive-dark: #8b715a;
   --deep-brown: #402d1d;
   --mauve: #906564;
+  --mauve-dark: #6d4a45;
   --blush-bg: #ecdfda;
   --cream: #f3f2f1;
   --gray-bg: #eeece7;
@@ -11,7 +28,7 @@
   --text-muted: #8c8c86;
   --charcoal: #402d1d;
   --white: #ffffff;
-  --font-script: 'Alex Brush', cursive;
+  --font-script: 'Golden Plains', 'Montserrat', cursive;
   --font-body: 'Montserrat', sans-serif;
 }
 
@@ -22,7 +39,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 400;
   font-size: 19px;
   color: var(--text-dark);
   background: var(--white);
@@ -60,9 +77,9 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 .nav-links a {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0px;
   color: var(--text-dark);
   white-space: nowrap;
   transition: color 0.2s ease;
@@ -80,7 +97,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   flex-shrink: 0;
 }
 
-.logo img { width: 42px; height: 42px; margin-bottom: 4px; }
+.logo img { width: 40px; height: auto; margin-bottom: 6px; }
 
 .logo-title {
   font-family: var(--font-script);
@@ -91,7 +108,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .logo-sub {
   font-size: 11px;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 2px;
   color: var(--text-muted);
   margin-top: 2px;
@@ -116,7 +133,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 /* ---------- Shared ---------- */
 .script-heading {
   font-family: var(--font-script);
-  font-size: 60px;
+  font-size: clamp(34px, 4.2vw, 54px);
   color: var(--olive);
   font-weight: 400;
   margin: 0 0 24px;
@@ -132,12 +149,12 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .btn {
   display: inline-block;
-  padding: 14px 38px;
-  font-size: 21px;
+  padding: 8px 32px;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border-radius: 4px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -164,20 +181,49 @@ ul { list-style: none; margin: 0; padding: 0; }
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
+#btn-contact {
+    width: 12em;
+    text-align: center;
+}
+
 /* ---------- Welcome ---------- */
 .welcome {
+  padding: 70px 40px;
+}
+
+.welcome-inner {
   max-width: 1200px;
-  margin: 70px auto;
-  padding: 0 40px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1.1fr;
-  gap: 60px;
+  gap: 30px;
   align-items: center;
 }
 
 .welcome-image img {
   width: 100%;
-  border-radius: 4px;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: 38% center;
+  border-radius: 28px;
+}
+
+.welcome-heading {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.welcome-heading .script-heading {
+  margin-left: -50px;
+  margin-bottom: 0;
+  line-height: 1;
+  position: relative;
+}
+
+.welcome-content {
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 .welcome-content p {
@@ -186,14 +232,21 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin-bottom: 30px;
 }
 
+.welcome-content .btn {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  transform: translateX(-20px);
+}
+
 /* ---------- Banner ---------- */
 .banner {
   background-color: var(--blush-bg);
-  background-image:
-    radial-gradient(ellipse 500px 300px at 15% 20%, rgba(255,255,255,0.35), transparent 60%),
-    radial-gradient(ellipse 400px 260px at 85% 80%, rgba(144,101,100,0.08), transparent 60%),
-    radial-gradient(ellipse 600px 400px at 60% 0%, rgba(255,255,255,0.2), transparent 55%);
-  padding: 70px 40px;
+  background-image: url('../images/banner-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 28px 40px;
 }
 
 .banner-text {
@@ -201,15 +254,18 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin: 0 auto;
   text-align: center;
   font-size: 27px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--text-dark);
-  line-height: 1.5;
+  line-height: 1.15;
 }
 
 .banner-script {
   font-family: var(--font-script);
-  font-size: 1.7em;
-  color: var(--mauve);
+  font-size: 3.5em;
+  /* unitless line-height inherits as a NUMBER, so at 3.5em these spans would
+     compute 1.15 x 94px and force the two lines apart — pin it on the span */
+  line-height: 0.7;
+  color: var(--text-dark);
 }
 
 /* ---------- What I Offer ---------- */
@@ -220,7 +276,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 .offer-text {
-  max-width: 760px;
+  max-width: 85%;
 }
 
 .offer-text p {
@@ -230,49 +286,69 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .offer-help-card {
   position: relative;
-  background: var(--cream);
-  border: 1px solid #e9e3dc;
-  border-radius: 12px;
   margin-top: 56px;
-  padding: 46px 30px 20px;
 }
 
 .offer-help-label {
   position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--mauve);
+  top: 0;
+  left: 48px;
+  /* straddle the card's top edge, half in / half out */
+  transform: translateY(-50%);
+  z-index: 1;
+  background: var(--mauve-dark);
   color: var(--white);
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 600;
+  line-height: 1.2;
   white-space: nowrap;
-  padding: 12px 24px;
-  border-radius: 6px;
-  box-shadow: 0 8px 18px rgba(144, 101, 100, 0.3);
+  padding: 11px 22px;
+  border-radius: 8px;
 }
 
 .offer-help-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  border: 2px solid var(--mauve-dark);
+  border-radius: 32px;
+  overflow: hidden;
 }
 
 .offer-help-col {
-  padding: 10px 22px 26px;
+  position: relative;
+  padding: 60px 12px 40px;
   text-align: center;
-  border-left: 1px solid #e9e3dc;
+  background: var(--white);
 }
 
-.offer-help-col:first-child { border-left: none; }
+.offer-help-col:nth-child(odd) { background: var(--blush-bg); }
 
-.offer-help-col:nth-child(2n) { background: var(--blush-bg); }
+/* dot separators, centred on the seam between columns and on the heading */
+.offer-help-col + .offer-help-col::before {
+  content: "";
+  position: absolute;
+  top: 91px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mauve);
+}
 
 .offer-help-col h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-script);
-  font-size: 24px;
+  font-size: 28px;
+  /* Golden Plains is single-weight, so font-weight can't thin these — a softer
+     warm grey is what actually lightens them. */
   font-weight: 400;
-  color: var(--mauve);
-  margin: 0 0 14px;
+  line-height: 1.25;
+  color: #5f5652;
+  /* two lines' worth so every column's list starts at the same baseline */
+  min-height: 70px;
+  margin: 0 0 16px;
 }
 
 .offer-help-col li {
@@ -283,10 +359,11 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 /* ---------- About Laura ---------- */
 .about-laura {
-  background-color: var(--gray-bg);
-  background-image:
-    radial-gradient(circle 240px at 8% 15%, rgba(134,136,112,0.1), transparent 65%),
-    radial-gradient(circle 260px at 95% 85%, rgba(134,136,112,0.1), transparent 65%);
+  background-color: var(--cream);
+  background-image: url('../images/lotus-pattern.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 90px 40px;
 }
 
@@ -332,7 +409,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 .rates-subhead {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 22px;
   color: var(--text-dark);
   margin: 0 0 16px;
@@ -344,14 +421,14 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .rates-list li {
   font-size: 19px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--text-dark);
   margin-bottom: 8px;
 }
 
 .rates-disclaimer {
   font-size: 11px;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--text-muted);
   line-height: 1.6;
 }
@@ -366,7 +443,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .rates-portal-card p {
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 500;
   margin: 0 0 22px;
   line-height: 1.6;
 }
@@ -390,7 +467,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 .cta-text p {
   color: var(--deep-brown);
   font-size: 27px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.35;
   margin: 0 0 20px;
 }
@@ -442,13 +519,13 @@ ul { list-style: none; margin: 0; padding: 0; }
 .cta-form-card .btn {
   display: block;
   margin: 0 auto;
-  padding: 13px 34px;
+  padding: 8px 32px;
 }
 
 .form-status {
   text-align: center;
   font-size: 11px;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--olive-dark);
   margin: 14px 0 0;
   min-height: 18px;
@@ -471,16 +548,20 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: 20px;
 }
 
-.footer-contact p { margin: 0 0 4px; font-size: 11px; font-weight: 400; }
+.footer-contact p { margin: 0 0 4px; font-size: 11px; font-weight: 300; }
 
-.footer-copy p { margin: 0; font-size: 11px; font-weight: 400; color: #b8ada2; }
+.footer-copy p { margin: 0; font-size: 11px; font-weight: 300; color: #b8ada2; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .welcome,
+  .welcome-inner,
   .cta-inner,
   .rates-inner {
     grid-template-columns: 1fr;
+  }
+
+  .welcome-heading .script-heading {
+    margin-left: 0;
   }
 
   .about-laura-inner {
@@ -498,16 +579,34 @@ ul { list-style: none; margin: 0; padding: 0; }
   .about-laura-more { grid-row: 3; }
 
   .offer-help-grid { grid-template-columns: 1fr 1fr; }
-  .offer-help-col:nth-child(2) { border-left: 1px solid #e9e3dc; }
-  .offer-help-col:nth-child(3) { border-left: none; }
 
-  .script-heading { font-size: 42px; }
+  /* pill drops into the flow so it can wrap instead of overflowing the card */
+  .offer-help-label {
+    position: static;
+    transform: none;
+    display: block;
+    white-space: normal;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+  }
+
+  .offer-help-col { padding-top: 30px; }
+  .offer-help-col + .offer-help-col::before { display: none; }
+
   .banner-text { font-size: 19px; }
 
   .cta-text p { text-align: center; }
   .cta-arrow { display: block; margin: 0 auto; }
 
   .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* 2-up: checkerboard the fills, otherwise odd/even reads as two solid vertical bands */
+@media (max-width: 900px) and (min-width: 721px) {
+  .offer-help-col:nth-child(3) { background: var(--white); }
+  .offer-help-col:nth-child(4) { background: var(--blush-bg); }
 }
 
 @media (max-width: 720px) {
@@ -538,8 +637,6 @@ ul { list-style: none; margin: 0; padding: 0; }
   }
 
   .offer-help-grid { grid-template-columns: 1fr; }
-  .offer-help-col { border-left: none !important; }
-  .offer-help-col:nth-child(2n) { background: transparent; }
 
   .form-row { grid-template-columns: 1fr; }
 }
