@@ -22,11 +22,11 @@
   --mauve: #906564;
   --mauve-dark: #6d4a45;
   --blush-bg: #ecdfda;
+  --blush-tint: #f0ebe9;
   --cream: #f3f2f1;
   --gray-bg: #eeece7;
   --text-dark: #3a3a3a;
   --text-muted: #8c8c86;
-  --charcoal: #402d1d;
   --white: #ffffff;
   --font-script: 'Golden Plains', 'Montserrat', cursive;
   --font-body: 'Montserrat', sans-serif;
@@ -91,28 +91,11 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 .logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block;
   flex-shrink: 0;
 }
 
-.logo img { width: 40px; height: auto; margin-bottom: 6px; }
-
-.logo-title {
-  font-family: var(--font-script);
-  font-size: 30px;
-  color: var(--mauve);
-  line-height: 1;
-}
-
-.logo-sub {
-  font-size: 11px;
-  font-weight: 300;
-  letter-spacing: 2px;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
+.logo img { display: block; width: 150px; height: auto; }
 
 .nav-toggle {
   display: none;
@@ -221,13 +204,17 @@ ul { list-style: none; margin: 0; padding: 0; }
   position: relative;
 }
 
+/* Paragraph and button share this box, so the button's auto margins center it on
+   the paragraph. Inset from the heading, which sits in its own block and is
+   deliberately not nudged; the copy overhangs it on the right and that's fine. */
 .welcome-content {
   max-width: 480px;
   margin: 0 auto;
+  padding-left: 24px;
 }
 
 .welcome-content p {
-  color: var(--text-muted);
+  color: var(--text-dark);
   font-size: 19px;
   margin-bottom: 30px;
 }
@@ -236,7 +223,6 @@ ul { list-style: none; margin: 0; padding: 0; }
   display: block;
   width: fit-content;
   margin: 0 auto;
-  transform: translateX(-20px);
 }
 
 /* ---------- Banner ---------- */
@@ -246,7 +232,9 @@ ul { list-style: none; margin: 0; padding: 0; }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 28px 40px;
+  /* generous vertical padding: the 3.5em script spans overflow their 0.7
+     line boxes, so they encroach on whatever padding is set here */
+  padding: 48px 40px 58px;
 }
 
 .banner-text {
@@ -273,10 +261,6 @@ ul { list-style: none; margin: 0; padding: 0; }
   max-width: 1200px;
   margin: 90px auto 60px;
   padding: 0 40px;
-}
-
-.offer-text {
-  max-width: 85%;
 }
 
 .offer-text p {
@@ -309,7 +293,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 .offer-help-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border: 2px solid var(--mauve-dark);
+  border: 1px solid var(--mauve-dark);
   border-radius: 32px;
   overflow: hidden;
 }
@@ -321,7 +305,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   background: var(--white);
 }
 
-.offer-help-col:nth-child(odd) { background: var(--blush-bg); }
+.offer-help-col:nth-child(odd) { background: var(--blush-tint); }
 
 /* dot separators, centred on the seam between columns and on the heading */
 .offer-help-col + .offer-help-col::before {
@@ -371,17 +355,20 @@ ul { list-style: none; margin: 0; padding: 0; }
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px 60px;
 }
 
 .about-laura-photo { grid-column: 1; grid-row: 1; }
 
 .about-laura-photo .portrait-img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 8px;
+  width: 90%;
+  height: auto;
+  max-width: 520px;
+  aspect-ratio: 12 / 5;
+  object-fit: contain;
+  /* same rounding as the welcome photo */
+  border-radius: 28px;
 }
 
 .about-laura-intro { grid-column: 1; grid-row: 2; }
@@ -434,6 +421,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 .rates-portal-card {
+  /* row is align-items: start; centre just this item against the taller text column */
+  align-self: center;
   background: var(--olive);
   color: var(--white);
   border-radius: 10px;
@@ -472,7 +461,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin: 0 0 20px;
 }
 
-.cta-arrow { width: 200px; height: auto; }
+.cta-arrow { width: 400px; height: auto; }
 
 .cta-form-card {
   background: var(--white);
@@ -533,7 +522,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background: var(--charcoal);
+  background: var(--text-dark);
   color: #cfcac2;
   padding: 40px;
 }
@@ -595,10 +584,13 @@ ul { list-style: none; margin: 0; padding: 0; }
   .offer-help-col { padding-top: 30px; }
   .offer-help-col + .offer-help-col::before { display: none; }
 
+  .banner { padding-top: 32px; padding-bottom: 39px; }
   .banner-text { font-size: 19px; }
 
   .cta-text p { text-align: center; }
-  .cta-arrow { display: block; margin: 0 auto; }
+
+  /* single-column: the form stacks below, so an arrow pointing right at nothing */
+  .cta-arrow { display: none; }
 
   .footer-inner { flex-direction: column; align-items: flex-start; }
 }
@@ -606,15 +598,24 @@ ul { list-style: none; margin: 0; padding: 0; }
 /* 2-up: checkerboard the fills, otherwise odd/even reads as two solid vertical bands */
 @media (max-width: 900px) and (min-width: 721px) {
   .offer-help-col:nth-child(3) { background: var(--white); }
-  .offer-help-col:nth-child(4) { background: var(--blush-bg); }
+  .offer-help-col:nth-child(4) { background: var(--blush-tint); }
 }
 
 @media (max-width: 720px) {
   .site-header { padding: 16px 20px; }
 
+  .logo img { width: 118px; }
+
   .nav-links { display: none; }
 
-  .nav-toggle { display: flex; }
+  /* pulled out of the flow so it sits beside the centered lockup, not under it */
+  .nav-toggle {
+    display: flex;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
   .site-header.open .nav-links {
     display: flex;
