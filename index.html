@@ -210,7 +210,7 @@
             <div class="cta-form-card">
                 <p class="cta-form-intro">If you're interested in working together, I'd be happy to connect for a free
                     15-minute consultation to see if we're a good fit.</p>
-                <form id="contact-form" novalidate>
+                <form id="contact-form" action="https://www.formbackend.com/f/5b51dd17b705cf8c" method="POST" novalidate>
                     <div class="form-row">
                         <input type="text" id="first" name="first" placeholder="First" required>
                         <input type="text" id="last" name="last" placeholder="Last" required>
@@ -220,6 +220,9 @@
                         <input type="tel" id="phone" name="phone" placeholder="Phone">
                     </div>
                     <textarea id="message" name="message" placeholder="Message" rows="5" required></textarea>
+                    <!-- Honeypot: hidden from people, bots fill it in and get flagged as spam -->
+                    <input class="form-nono" type="text" name="formbackend_nono" tabindex="-1" autocomplete="off"
+                           aria-hidden="true">
                     <button type="submit" class="btn btn-olive">Submit</button>
                     <p class="form-status" id="form-status" role="status"></p>
                 </form>
